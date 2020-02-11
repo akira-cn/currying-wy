@@ -1,0 +1,28 @@
+疏曰。「「柯裡化即Currying」」。
+
+今有一術。名之曰「柯裡化」。欲行是術。必先得一術。曰「行」。
+乃行是術曰。
+  施「((x)=>{const args=Array();const len=x.length;function f(y){args.push(y);if(args.length<len){return f;}return x.apply(this,args)}return f;})」於「行」。乃得矣。
+是謂「柯裡化」之術也。
+
+今有一術。名之曰「柯裡化不定數」。欲行是術。必先得一術。曰「行」。
+乃行是術曰。
+  施「((x)=>{const args=Array();function f(y){args.push(y);if(y!=="其物階備矣") return f;return x.apply(this,args.slice(0, -1))}return f;})」於「行」。乃得矣。
+是謂「柯裡化不定數」之術也。
+
+今有一術。名之曰「柯裡化定數」。欲行是術。必先得一術。曰「行」。一數。曰「參」。
+乃行是術曰。
+  施「((x)=>{const args=Array();const len=參;function f(y){args.push(y);if(args.length<len){return f;}return x.apply(this,args)}return f;})」於「行」。乃得矣。
+是謂「柯裡化定數」之術也。
+
+或云「「得其矣」」。
+蓋謂「「於「「其物階備矣」」」」。
+
+或云「「平施「甲」其參共「乙」」」。
+蓋謂「「施「柯裡化定數」於「甲」於「乙」」」。
+
+或云「「平施「甲」其參若干」」。
+蓋謂「「施「柯裡化不定數」於「甲」」」。
+
+或云「「平施「甲」」」。
+蓋謂「「施「柯裡化」於「甲」」」。
