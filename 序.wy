@@ -1,22 +1,41 @@
-疏曰。「「柯裡化即Currying」」。
+或云『爪哇國有腳本』蓋謂『疏曰*/』
+或云『其文如是矣』蓋謂『/*』
+
+爪哇國有腳本
+const _end = Symbol.for('All arguments ready');
+let currying = function(fn, len = fn.length) {
+  return function f(...args) {
+    if(args.length === 0) args.push(undefined);
+    if(args[args.length - 1] === _end) {
+      return fn.apply(this, args.slice(0, -1));
+    }
+    if(args.length >= len) {
+      return fn.apply(this, args);
+    }
+    return currying(fn.bind(this, ...args), len - args.length);
+  }
+}
+
+currying = currying(currying, 2);
+其文如是矣。
 
 今有一術。名之曰「柯裡化」。欲行是術。必先得一術。曰「行」。
 乃行是術曰。
-  施「((x)=>{const args=Array();const len=x.length;function f(y){args.push(y);if(args.length<len){return f;}return x.apply(this,args)}return f;})」於「行」。乃得矣。
+  施「currying(行)」。乃得矣。
 是謂「柯裡化」之術也。
 
 今有一術。名之曰「柯裡化不定數」。欲行是術。必先得一術。曰「行」。
 乃行是術曰。
-  施「((x)=>{const args=Array();function f(y){args.push(y);if(y!=="其物階備矣") return f;return x.apply(this,args.slice(0, -1))}return f;})」於「行」。乃得矣。
+  施「currying」於「行」於「Infinity」。乃得矣。
 是謂「柯裡化不定數」之術也。
 
 今有一術。名之曰「柯裡化定數」。欲行是術。必先得一術。曰「行」。一數。曰「參」。
 乃行是術曰。
-  施「((x)=>{const args=Array();const len=參;function f(y){args.push(y);if(args.length<len){return f;}return x.apply(this,args)}return f;})」於「行」。乃得矣。
+  施「currying」於「行」於「參」。乃得矣。
 是謂「柯裡化定數」之術也。
 
 或云「「得其矣」」。
-蓋謂「「於「「其物階備矣」」」」。
+蓋謂「「於「Symbol.for('All arguments ready')」」」。
 
 或云「「平施「甲」其參共「乙」」」。
 蓋謂「「施「柯裡化定數」於「甲」於「乙」」」。
